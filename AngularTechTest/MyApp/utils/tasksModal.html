@@ -1,0 +1,28 @@
+﻿<div id="modalDlgTask" name="modalDlgTask" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Employee Tasks</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <h4>Employee Name: {{name}} </h4>
+                <div ng-if="employeeTasks.length == 0">
+                    <p>No Task for this employee</p>
+                </div>
+                <div ng-if="employeeTasks.length > 0" )>
+                    <div class="form-group" ng-repeat="task in employeeTasks">
+                        <label class="col-form-label">{{task.TaskName}}  , Id: {{task.ETaskId}}  </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

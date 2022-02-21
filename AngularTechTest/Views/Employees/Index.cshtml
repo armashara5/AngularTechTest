@@ -1,0 +1,52 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/dirPagination.js"></script>
+
+
+<h2>Employees Index Page</h2>
+
+<div class="container" ng-app="myApp" ng-controller="empCtrl">
+    <ng-include src="'./MyApp/utils/modal.html'"></ng-include>
+    <ng-include src="'./MyApp/utils/tasksModal.html'"></ng-include>
+
+
+    <table class="table">
+        <tr>
+            <th> ID </th>
+            <th> Name</th>
+            <th> Department</th>
+            <th> Salary</th>
+            <td>  Tasks </td>
+        </tr>
+
+        <tr dir-paginate="employee in employeesData | itemsPerPage: 5">
+
+            <td ng-click="openModal(employee)">{{ employee.EmployeeId }} </td>
+            <td ng-click="openModal(employee)"> {{ employee.Name }} </td>
+            <td ng-click="openModal(employee)">{{ employee.Department }}   </td>
+            <td ng-click="openModal(employee)" >  {{ employee.Salary }} </td>
+            <td> <button class="btn btn-default" ng-click="openTasksModal(employee)">View Tasks</button> </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr style="background-color:lightblue">
+            <td></td>
+            <td>Total</td>
+            <td></td>
+            <td ng-model="total">{{total}}</td>
+            @*<td>{{ getTotal() }}</td>*@
+            <td></td>
+        </tr>
+    </table>
+    <dir-pagination-controls></dir-pagination-controls>
+</div>
